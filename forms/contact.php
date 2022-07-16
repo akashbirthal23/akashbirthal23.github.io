@@ -36,6 +36,10 @@
   $contact->add_message( $_POST['name'], 'From');
   $contact->add_message( $_POST['email'], 'Email');
   $contact->add_message( $_POST['message'], 'Message', 10);
+  $contact->honeypot = $_POST['first_name'];
+  $contact->recaptcha_secret_key = '6LdMRfcgAAAAAKVy5J3M-2ZNN5Lx0TBC3N1ZZWNw';
+  $contact->add_attachment('resume', 20, array('pdf', 'doc', 'docx', 'rtf'));
+
 
   echo $contact->send();
 ?>
